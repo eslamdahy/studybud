@@ -187,7 +187,7 @@ def updateuser(request):
         form = UserForm(request.POST,request.FILES,instance=user)
         if form.is_valid():
             form.save()
-            return redirect('user-profile',pk=user.id)
+            return redirect('user-profile',username=user.username)
     context = {'form':form}
     return render(request,'base/update-user.html',context)
 
